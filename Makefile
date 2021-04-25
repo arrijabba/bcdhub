@@ -7,7 +7,7 @@ BACKUP?=dump_latest
 .ONESHELL:
 
 api:
-	docker-compose up -d elastic mq db
+	sudo docker-compose up -d elastic mq db
 	cd cmd/api && go run .
 
 graphql:
@@ -19,7 +19,7 @@ api-tester:
 	cd scripts/api_tester && go run .
 
 indexer:
-	docker-compose up -d elastic mq
+	sudo docker-compose up -d elastic mq
 	cd cmd/indexer && go run .
 
 metrics:
